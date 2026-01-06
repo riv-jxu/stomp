@@ -741,6 +741,11 @@ bool Stomp::updateParameters()
     return false;
   }
 
+  // fixing the start and goal
+  // i.e. no updates in the first and last timestep
+  parameters_updates_.col(0).setZero();
+  parameters_updates_.col(parameters_updates_.cols() - 1).setZero();
+
   // updating parameters
   parameters_optimized_ += parameters_updates_;
 
