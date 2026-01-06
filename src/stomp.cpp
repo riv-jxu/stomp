@@ -33,8 +33,6 @@
 #include <stomp/utils.h>
 #include <stomp/stomp.h>
 
-#include <iostream>
-
 static const double DEFAULT_NOISY_COST_IMPORTANCE_WEIGHT = 1.0; /**< Default noisy cost importance weight */
 static const double MIN_COST_DIFFERENCE = 1e-8; /**< Minimum cost difference allowed during probability calculation */
 static const double MIN_CONTROL_COST_WEIGHT = 1e-8; /**< Minimum control cost weight allowed */
@@ -743,7 +741,6 @@ bool Stomp::updateParameters()
     return false;
   }
 
-  std::cout << "Setting first/last column of parameters_updates_ to zero" << std::endl;
   // fixing the start and goal
   // i.e. no updates in the first and last timestep
   parameters_updates_.col(0).setZero();
